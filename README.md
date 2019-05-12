@@ -53,7 +53,7 @@ python3 main/train.py
 ```shell
 python3 main/demo.py -i data/input -o data/output
 ```
-<img src="/data/output/5.jpeg" width=320 height=240 /><img src="/data/output/9.jpeg" width=320 height=240 />
+<img src="/data/output/5.jpeg" width=400 /><img src="/data/output/9.jpeg" width=400 />
 
 ***
 # roadmap
