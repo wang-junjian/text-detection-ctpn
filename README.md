@@ -37,12 +37,12 @@ labelImg dataset/image dataset/classes.txt dataset/voc-label
 python3 utils/prepare/voc2ctpn.py
 ```
 
-- 转换为16像素的vertical anchor宽度格式（[输入](dataset), [输出](data/dataset/mlt)）
+- 转换为16像素的vertical anchor宽度格式（输入目录：[dataset](dataset), 输出目录：data/dataset/mlt）
 ```shell
 python3 utils/prepare/split_label.py
 ```
 
-- 训练模型（[样本目录](data/dataset/mlt)）
+- 训练模型（样本目录：data/dataset/mlt）
 ```shell
 sudo yum install python36-tkinter
 
