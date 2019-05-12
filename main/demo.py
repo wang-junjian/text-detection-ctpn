@@ -3,6 +3,7 @@ import os
 import shutil
 import sys
 import time
+import argparse
 
 import cv2
 import numpy as np
@@ -12,6 +13,7 @@ sys.path.append(os.getcwd())
 from nets import model_train as model
 from utils.rpn_msr.proposal_layer import proposal_layer
 from utils.text_connector.detectors import TextDetector
+
 
 tf.app.flags.DEFINE_string('test_data_path', 'data/demo/', '')
 tf.app.flags.DEFINE_string('output_path', 'data/res/', '')
@@ -118,4 +120,13 @@ def main(argv=None):
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-i', '--input', type=str, help='test data path.')
+    parser.add_argument('-o', '--output', type=str, help='output path.')
+    
+    args = parser.parse_args()
+    
+    FLAGS.test_data_path = args.input
+    FLAGS.output_path = args.output
+
     tf.app.run()

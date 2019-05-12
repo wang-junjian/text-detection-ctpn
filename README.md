@@ -44,13 +44,16 @@ python3 utils/prepare/split_label.py
 
 - 训练模型
 ```shell
+sudo yum install python36-tkinter
+
 python3 main/train.py
 ```
 
 - 模型预测
 ```shell
-python3 main/demo.py
+python3 main/demo.py -i data/input -o data/output
 ```
+<img src="/data/output/5.jpeg" width=320 height=240 /><img src="/data/output/9.jpeg" width=320 height=240 />
 
 ***
 # roadmap
