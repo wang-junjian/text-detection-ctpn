@@ -4,6 +4,55 @@ Scene text detection based on ctpn (connectionist text proposal network). It is 
 ***
 **NOTICE: Thanks to [banjin-xjy](https://github.com/banjin-xjy), banjin and I have reonstructed this repo. The old repo was written based on Faster-RCNN, and remains tons of useless code and dependencies, make it hard to understand and maintain. Hence we reonstruct this repo. The old code is saved in [branch master](https://github.com/eragonruan/text-detection-ctpn/tree/master)**
 ***
+# 银行卡号位置检测实战
+- 获取git仓库
+```shell
+git clone https://github.com/wang-junjian/text-detection-ctpn.git
+```
+
+- 安装依赖的python库
+```shell
+cd text-detection-ctpn
+pip3 install -r requirements.txt
+```
+
+- 构建nms和bbox库
+```shell
+cd utils/bbox
+chmod +x make.sh
+./make.sh
+cd ../../
+```
+
+- 下载checkpoints_mlt.zip到根目录下checkpoints_mlt
+- 下载vgg_16.tar到data/vgg_16.ckpt
+
+- 样本标注
+```shell
+labelImg dataset/image dataset/classes.txt dataset/voc-label
+```
+
+- voc格式转为从左上角开始顺时针4个点的格式（19,70,198,70,198,90,19,90,english,###）
+```shell
+python3 utils/prepare/voc2ctpn.py
+```
+
+- 转换为16像素的vertical anchor宽度格式
+```shell
+python3 utils/prepare/split_label.py
+```
+
+- 训练模型
+```shell
+python3 main/train.py
+```
+
+- 模型预测
+```shell
+python3 main/demo.py
+```
+
+***
 # roadmap
 - [x] reonstruct the repo
 - [x] cython nms and bbox utils
