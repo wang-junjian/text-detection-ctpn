@@ -11,16 +11,16 @@ from nets import model_train as model
 from utils.dataset import data_provider as data_provider
 
 tf.app.flags.DEFINE_float('learning_rate', 1e-5, '')
-tf.app.flags.DEFINE_integer('max_steps', 50000, '')
+tf.app.flags.DEFINE_integer('max_steps', 10000, '')
 tf.app.flags.DEFINE_integer('decay_steps', 30000, '')
-tf.app.flags.DEFINE_integer('decay_rate', 0.1, '')
+tf.app.flags.DEFINE_float('decay_rate', 0.1, '')
 tf.app.flags.DEFINE_float('moving_average_decay', 0.997, '')
 tf.app.flags.DEFINE_integer('num_readers', 4, '')
 tf.app.flags.DEFINE_string('gpu', '0', '')
 tf.app.flags.DEFINE_string('checkpoint_path', 'checkpoints_mlt/', '')
 tf.app.flags.DEFINE_string('logs_path', 'logs_mlt/', '')
 tf.app.flags.DEFINE_string('pretrained_model_path', 'data/vgg_16.ckpt', '')
-tf.app.flags.DEFINE_boolean('restore', True, '')
+tf.app.flags.DEFINE_boolean('restore', False, '')
 tf.app.flags.DEFINE_integer('save_checkpoint_steps', 2000, '')
 FLAGS = tf.app.flags.FLAGS
 

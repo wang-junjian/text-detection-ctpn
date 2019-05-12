@@ -6,9 +6,9 @@ import numpy as np
 from tqdm import tqdm
 
 sys.path.append(os.getcwd())
-from utils.prepare.utils import orderConvex, shrink_poly
+from utils.prepare.util import orderConvex, shrink_poly
 
-DATA_FOLDER = "/media/D/DataSet/mlt_selected/"
+DATA_FOLDER = "dataset/"
 OUTPUT = "data/dataset/mlt/"
 MAX_LEN = 1200
 MIN_LEN = 600
@@ -36,9 +36,9 @@ for im_fn in tqdm(im_fns):
         im_size_min = np.min(img_size[0:2])
         im_size_max = np.max(img_size[0:2])
 
-        im_scale = float(600) / float(im_size_min)
-        if np.round(im_scale * im_size_max) > 1200:
-            im_scale = float(1200) / float(im_size_max)
+        im_scale = float(MIN_LEN) / float(im_size_min)
+        if np.round(im_scale * im_size_max) > MAX_LEN:
+            im_scale = float(MAX_LEN) / float(im_size_max)
         new_h = int(img_size[0] * im_scale)
         new_w = int(img_size[1] * im_scale)
 

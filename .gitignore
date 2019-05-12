@@ -11,6 +11,7 @@ dist/
 checkpoints/
 checkpoints_*/
 .idea/
+tmp/
 *.py[cod]
 *.c[cod]
 *.so
