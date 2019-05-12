@@ -27,29 +27,29 @@ cd ../../
 - 下载checkpoints_mlt.zip到根目录下checkpoints_mlt
 - 下载vgg_16.tar到data/vgg_16.ckpt
 
-- 样本标注
+- [样本](dataset/image)标注
 ```shell
 labelImg dataset/image dataset/classes.txt dataset/voc-label
 ```
 
-- voc格式转为从左上角开始顺时针4个点的格式（19,70,198,70,198,90,19,90,english,###）
+- [voc格式](dataset/voc-label)转为从左上角开始[顺时针4个点的格式](dataset/label)（19,70,198,70,198,90,19,90,english,###）
 ```shell
 python3 utils/prepare/voc2ctpn.py
 ```
 
-- 转换为16像素的vertical anchor宽度格式
+- 转换为16像素的vertical anchor宽度格式（[输入](dataset), [输出](data/dataset/mlt)）
 ```shell
 python3 utils/prepare/split_label.py
 ```
 
-- 训练模型
+- 训练模型（[样本目录](data/dataset/mlt)）
 ```shell
 sudo yum install python36-tkinter
 
 python3 main/train.py
 ```
 
-- 模型预测
+- 模型预测（[预测图片](data/input), [预测结果](data/output)）
 ```shell
 python3 main/demo.py -i data/input -o data/output
 ```
